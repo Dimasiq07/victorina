@@ -258,16 +258,18 @@ function game(){
 
         //Проверка ответа на правильность
         if (v>0){
+            voice_correct();
             btns.classList='done'
             ph="Да"
             answers++;
-            voice_correct();
+            
             
         }   
         else{
+            voice_incorrect();
             btns.classList='none'
             ph="Нет"
-            voice_incorrect();
+            
         }
 
             log=`<div class="log">${q}- это ${t}. За это ты получил ${v} балл-(ов).</div>`
@@ -289,7 +291,7 @@ function game(){
 
         //После выбора варианта ответа
         function timeout(){
-            alert("Ты получил "+v+" балл-(ов)")
+            alert("Ты получил "+v+" балла-(ов)")
             
             let cont=document.querySelector('.header')
             let suptitle=document.getElementById('suptitle__suptitle')
